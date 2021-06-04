@@ -1,0 +1,19 @@
+{
+  "name": "loket-reservation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremylf98/loket-reservation.git"
+  },
+  "author": "Jeremy Levian Febry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeremylf98/loket-reservation/issues"
+  },
+  "homepage": "https://github.com/jeremylf98/loket-reservation#readme"
+}
