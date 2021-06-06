@@ -3,6 +3,14 @@ const {v4: uuidv4} = require('uuid');
 
 class EventDAO {
     async createEvent(locationId, name, startTime, endTime) {
+
+        const location = await db('locations')
+        .where('id', locationId)
+        .first();
+
+        if(!location)
+            return;
+
         const event = db('events').insert({
             id: uuidv4(),
             location_id: locationId,
@@ -16,7 +24,15 @@ class EventDAO {
     }
 
     async createEventTicket(eventId, type, price, quantity) {
-        const ticket = await db('tickets').insert({
+
+        const event = await db('events')
+        .where('id', eventId)
+        .first();
+
+        if(!event)
+            return;
+
+        const ticket = db('tickets').insert({
             id: uuidv4(),
             event_id: eventId,
             type,
