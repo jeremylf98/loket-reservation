@@ -5,8 +5,12 @@ class EventController {
     async createEvent(req, res) {
         try{
 
-            const id = await eventService.createEvent(req.body);
-            return res.status(200).json(responseHelper.baseResponse(id));
+            const data = await eventService.createEvent(req.body);
+
+            if(!data)
+                return res.status(400).send('Bad Request');
+
+            return res.status(200).json(responseHelper.baseResponse(data));
 
         } catch (e) {
             console.log(e);
@@ -16,8 +20,11 @@ class EventController {
     async createEventTicket(req, res) {
         try{
 
-            const id = await eventService.createEventTicket(req.body);
-            return res.status(200).json(responseHelper.baseResponse(id));
+            const data = await eventService.createEventTicket(req.body);
+            if(!data)
+                return res.status(400).send('Bad Request');
+                
+            return res.status(200).json(responseHelper.baseResponse(data));
 
         } catch (e) {
             console.log(e);
