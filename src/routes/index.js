@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const event = require('../controllers/event');
+const location = require('../controllers/location');
 
 // event routes
 router.post('/event/create', event.createEvent);
@@ -9,17 +10,7 @@ router.post('/event/ticket/create', event.createEventTicket);
 router.get('/event/get_info', event.getAllEventInfo);
 
 // location routes
-router.post('/location/create', (req, res) => {
-
-    const { name } = req.body;
-
-    if(!name) {
-        res.status(400).send('name is empty');
-        return;
-    }
-
-    res.status(200).send({name});
-});
+router.post('/location/create', location.createLocation);
 
 // transaction routes
 router.post('/transaction/purchase', (req, res) => {
