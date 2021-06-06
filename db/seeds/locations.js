@@ -4,22 +4,22 @@ exports.seed = function(knex) {
   // Deletes ALL existing entries
   return knex('locations').del()
     .then( () => {
-      
+
       const seeds = [
         // data 1
         {
           id: uuidv4(), // generate uuidv4
-          name: 'Tangerang',
+          name: 'Central Park',
         },
         // data 2
         {
           id: uuidv4(), // generate uuidv4
-          name: 'Tangerang Selatan',
+          name: 'Plaza Indonesia',
         },
         // data 3
         {
           id: uuidv4(), // generate uuidv4
-          name: 'Jakarta',
+          name: 'Mall Kelapa Gading',
         },
       ];
 
