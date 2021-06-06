@@ -1,7 +1,6 @@
+require('dotenv').config(); // Required to use .env file
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
-
 app.use(express.json());
 
 // List of routers
@@ -15,6 +14,8 @@ app.use('/v1/transaction', transaction);
 app.use('/v1/location', location);
 
 // Running localhost 
+
+const port = process.env.PORT || 3000;
 
 app.listen(
     port,
