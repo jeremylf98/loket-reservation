@@ -1,17 +1,10 @@
 require('dotenv').config(); // Required to use .env file
 const express = require('express');
 const app = express();
+const router = require('./src/routes');
+
 app.use(express.json());
-
-// List of routers
-
-const event = require('./src/routes/v1/event');
-const transaction = require('./src/routes/v1/transaction')
-const location = require('./src/routes/v1/location')
-
-app.use('/v1/event', event);
-app.use('/v1/transaction', transaction);
-app.use('/v1/location', location);
+app.use(router);
 
 // Running localhost 
 
