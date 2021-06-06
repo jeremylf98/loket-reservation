@@ -1,4 +1,4 @@
-let eventController = {};
+const eventController = {};
 
 eventController.createEvent = (req, res) => {
 
