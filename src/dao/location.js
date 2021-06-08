@@ -8,10 +8,10 @@ class LocationDAO {
         const location = db('locations').insert({
             id: uuidv4(),
             name,
-        });
+        }).returning('*');
 
         return Promise.all([location])
-        .then(location => location[0].rowCount === 1);
+        .then(location => location[0][0]);
     }
 
 }
