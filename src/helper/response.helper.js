@@ -6,6 +6,14 @@ class ResponseHelper {
             data: data,
         }
     }
+
+    errorResponse(message) {
+        return {
+            code: 400,
+            status: "BAD REQUEST",
+            message: message
+        }
+    }
 }
 
 module.exports = new ResponseHelper();

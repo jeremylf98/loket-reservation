@@ -8,14 +8,11 @@ class EventService {
 
     createEventTicket(eventTicketDTO) {
         const { eventId, type, price, quantity } = eventTicketDTO;
-
-        // Add logic to filter if type is in the type list
-
         return eventDAO.createEventTicket(eventId, type, price, quantity);
     }
 
-    getAllEventInfo() {
-        return eventDAO.getAllEventInfo();
+    getEventInfo(eventId) {
+        return eventDAO.getEventInfo(eventId);
     }
 
 }

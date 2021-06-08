@@ -3,30 +3,44 @@ const {v4: uuidv4} = require('uuid');
 
 class TransactionDAO {
 
-    async createTransaction(ticketId, quantity) {
+    async createTransaction(transactionDTOs) {
 
-        if(quantity === 0) return;
+        const promises = [];
 
-        const ticket = await db('tickets')
-        .where('id', ticketId)
-        .first();
+        for(let i = 0; i < transactionDTOs.length; i++) {
 
-        if(!ticket || (ticket.quantity - quantity) < 0) 
-            return;
+            const ticket = await db('tickets')
+            .where('id', transactionDTOs[i].ticketId)
+            .first();
+    
+            if(!ticket || (ticket.quantity - transactionDTOs[i].quantity) < 0) 
+                return;
 
-        const transaction = db('transactions').insert({
-            id: uuidv4(),
-            ticket_id: ticketId
+            const transaction = db('transactions').insert({
+                id: uuidv4(),
+                ticket_id: transactionDTOs[i].ticketId
+            }).returning('*');
+
+            const updateTicket = db('tickets')
+            .where('id', transactionDTOs[i].ticketId)
+            .update({
+                quantity: ticket.quantity - transactionDTOs[i].quantity,
+                updated_at: new Date(),
+            });
+
+            promises.push(transaction);
+            promises.push(updateTicket);
+    
+        }
+
+        return Promise.all(promises)
+        .then( (promise) => {
+            const result = [];
+            for(let i = 0; i < promise.length; i+=2) {
+                result.push(promise[i][0]);
+            }
+            return result;
         });
-
-        const updateTicket = db('tickets')
-        .where('id', ticketId)
-        .update({
-            quantity: ticket.quantity - quantity
-        })
-
-        return Promise.all([transaction, updateTicket])
-        .then(transaction => transaction[0].rowCount === 1);
 
     }
 

@@ -1,9 +1,8 @@
 const transactionDAO = require('../dao/transaction');
 
 class TransactionService {
-    createTransaction(transactionDTO) {
-        const { ticketId, quantity } = transactionDTO;
-        return transactionDAO.createTransaction(ticketId, quantity);
+    createTransaction(transactionDTOs) {
+        return transactionDAO.createTransaction(transactionDTOs);
     }
 
     getTransactionInfo(transactionId) {

@@ -17,10 +17,10 @@ class EventDAO {
             name,
             start_time: startTime,
             end_time: endTime,
-        });
+        }).returning('*');
 
         return Promise.all([event])
-        .then(event => event[0].rowCount === 1);
+        .then(event => event[0][0]);
     }
 
     async createEventTicket(eventId, type, price, quantity) {
@@ -38,14 +38,16 @@ class EventDAO {
             type,
             price,
             quantity,
-        });
+        }).returning('*');
 
         return Promise.all([ticket])
-        .then(ticket => ticket[0].rowCount === 1);
+        .then(ticket => ticket[0][0]);
     }
 
-    async getAllEventInfo() {
-        return db('events').select();
+    async getEventInfo(eventId) {
+        return db('events')
+        .where('id', eventId)
+        .first();
     }
 
 }

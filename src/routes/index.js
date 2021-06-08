@@ -8,7 +8,7 @@ const transaction = require('../controllers/transaction');
 // event routes
 router.post('/event/create', event.createEvent);
 router.post('/event/ticket/create', event.createEventTicket);
-router.get('/event/get_info', event.getAllEventInfo);
+router.get('/event/get_info/:eventId', event.getEventInfo);
 
 // location routes
 router.post('/location/create', location.createLocation);

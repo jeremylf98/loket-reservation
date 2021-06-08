@@ -1,9 +1,13 @@
 const transactionService = require('../services/transaction');
 const responseHelper = require('../helper/response.helper');
+const transactionSchema = require('./Schema/transaction.schema');
 
 class TransactionController{
     async createTransaction(req, res) {
         try {
+
+            await transactionSchema.createTransactionSchema(req.body);
+
             const data = await transactionService.createTransaction(req.body);
             if(!data) 
                 return res.status(400).send('Bad Request');
@@ -11,6 +15,7 @@ class TransactionController{
 
         } catch (e) {
             console.log(e);
+            res.json(responseHelper.errorResponse(e.message));
         }
     }
 
@@ -20,12 +25,13 @@ class TransactionController{
             const data = await transactionService.getTransactionInfo(transactionId);
 
             if(!data) 
-                return res.status(404).send('Transaction not found!');
+                return res.status(404).send('Transaction Not Found!');
 
             return res.status(200).json(responseHelper.baseResponse(data));
 
         } catch (e) {
             console.log(e);
+            res.json(responseHelper.errorResponse(e.message));
         }
     }
 }
