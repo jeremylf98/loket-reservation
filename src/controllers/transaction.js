@@ -34,6 +34,17 @@ class TransactionController{
             res.json(responseHelper.errorResponse(e.message));
         }
     }
+
+    async getAllTransaction(req, res) {
+        try{
+            const data = await transactionService.getAllTransaction();
+            return res.status(200).json(responseHelper.baseResponse(data)); // return data with a template
+
+        } catch (e) {
+            console.log(e);
+            res.json(responseHelper.errorResponse(e.message));
+        }
+    }
 }
 
 module.exports = new TransactionController();
