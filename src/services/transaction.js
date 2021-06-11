@@ -8,6 +8,11 @@ class TransactionService {
     getTransactionInfo(transactionId) {
         return transactionDAO.getTransactionInfo(transactionId);
     }
+
+    getAllTransaction() {
+        return transactionDAO.getAllTransaction();
+    }
+    
 }
 
 module.exports = new TransactionService();
