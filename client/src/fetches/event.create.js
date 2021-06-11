@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-class EventGetInfo extends Component {
+class EventCreateInfo extends Component {
 
     constructor(props) {
         super(props);
@@ -80,4 +80,4 @@ class EventGetInfo extends Component {
 
 }
 
-export default EventGetInfo;
+export default EventCreateInfo;
