@@ -37,6 +37,7 @@ class EventGetInfo extends Component {
             
         return (
             <div>
+                <h1>Insert Event Data</h1>
                 <form onSubmit={this.submitHandler}>
                     <div>
                         LocationId:
@@ -72,6 +73,7 @@ class EventGetInfo extends Component {
                     </div>
                     <button type="submit">Insert</button>
                 </form>
+                <br></br><br></br>
             </div>
         )
     }
