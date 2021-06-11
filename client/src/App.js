@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import EventGetInfo from './fetches/event.get-info';
 import EventCreate from './fetches/event.create';
+import LocationGetInfo from './fetches/location.get-info';
+import LocationCreate from './fetches/location.create';
+import TransactionGetInfo from './fetches/transaction.get-info';
+
 import './App.css';
 
 class App extends Component {
@@ -18,11 +22,14 @@ class App extends Component {
   // componentWillMount() {
   //     this.callAPI();
   // }
-  
+
   render() {
     return <div className="App">
+      <LocationCreate />
+      <LocationGetInfo />
       <EventCreate />
       <EventGetInfo />
+      <TransactionGetInfo />
     </div>
   }
 
