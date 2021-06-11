@@ -17,6 +17,17 @@ class LocationController{
             res.json(responseHelper.errorResponse(e.message));
         }
     }
+
+    async getAllLocation(req, res) {
+        try{
+            const data = await locationService.getAllLocation();
+            return res.status(200).json(responseHelper.baseResponse(data)); // return data with a template
+
+        } catch (e) {
+            console.log(e);
+            res.json(responseHelper.errorResponse(e.message));
+        }
+    }
 }
 
 module.exports = new LocationController();
