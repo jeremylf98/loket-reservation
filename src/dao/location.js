@@ -14,6 +14,12 @@ class LocationDAO {
         .then(location => location[0][0]);
     }
 
+    async getAllLocation() {
+        return db('locations')
+        .select();
+    }
+
+
 }
 
 module.exports = new LocationDAO();
