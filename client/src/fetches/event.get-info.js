@@ -42,7 +42,8 @@ class EventGetInfo extends Component {
                     {this.state.datas.map((data, index) => {
                         return (
                             <div key={ data.id }>
-                                <h3> Data number {index + 1} </h3>
+                                <h4> Event Data number {index + 1} </h4>
+                                <div>Event Id: {data.id}</div>
                                 <div>Location Id: {data.location_id}</div>
                                 <div>Event Name: {data.name}</div>
                                 <div>Event Start Time : {data.start_time}</div>
