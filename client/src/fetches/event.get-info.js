@@ -33,7 +33,7 @@ class EventGetInfo extends Component {
          return <h1>loading...</h1>;
 
          if(!this.state.datas)
-            return <div>No Data Fetched!</div>
+            return <div>No Event Data Fetched!</div>
             
         return (
             <div>
