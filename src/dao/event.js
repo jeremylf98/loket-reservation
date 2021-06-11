@@ -50,6 +50,11 @@ class EventDAO {
         .first();
     }
 
+    async getAllEventInfo() {
+        return db('events')
+        .select();
+    }
+
 }
 
 module.exports = new EventDAO();
