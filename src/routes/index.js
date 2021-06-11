@@ -13,9 +13,11 @@ router.get('/event/get_info', event.getAllEventInfo);
 
 // location routes
 router.post('/location/create', location.createLocation);
+router.get('/location', location.getAllLocation);
 
 // transaction routes
 router.post('/transaction/purchase', transaction.createTransaction);
 router.get('/transaction/get_info/:transactionId', transaction.getTransactionInfo);
+router.get('/transaction/get_info', transaction.getAllTransaction);
 
 module.exports = router;
