@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-class LocationCreateInfo extends Component {
+class LocationCreate extends Component {
 
     constructor(props) {
         super(props);
@@ -53,4 +53,4 @@ class LocationCreateInfo extends Component {
 
 }
 
-export default LocationCreateInfo;
+export default LocationCreate;
