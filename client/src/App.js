@@ -4,6 +4,8 @@ import EventCreate from './fetches/event.create';
 import LocationGetInfo from './fetches/location.get-info';
 import LocationCreate from './fetches/location.create';
 import TransactionGetInfo from './fetches/transaction.get-info';
+import EventTicketGetInfo from './fetches/event-ticket.get-info';
+import EventTicketCreate from './fetches/event-ticket.create';
 
 import './App.css';
 
@@ -29,6 +31,8 @@ class App extends Component {
       <LocationGetInfo />
       <EventCreate />
       <EventGetInfo />
+      <EventTicketCreate />
+      <EventTicketGetInfo />
       <TransactionGetInfo />
     </div>
   }
