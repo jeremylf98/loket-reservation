@@ -55,6 +55,11 @@ class EventDAO {
         .select();
     }
 
+    async getAllEventTicketInfo() {
+        return db('tickets')
+        .select();
+    }
+
 }
 
 module.exports = new EventDAO();
