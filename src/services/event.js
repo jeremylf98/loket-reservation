@@ -15,6 +15,14 @@ class EventService {
         return eventDAO.getEventInfo(eventId);
     }
 
+    getAllEventInfo() {
+        return eventDAO.getAllEventInfo();
+    }
+
+    getAllEventTicketInfo() {
+        return eventDAO.getAllEventTicketInfo();
+    }
+
 }
 
 module.exports = new EventService();

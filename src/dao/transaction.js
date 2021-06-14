@@ -52,6 +52,11 @@ class TransactionDAO {
         return transaction;
 
     }
+    
+    async getAllTransaction() {
+        return db('transactions')
+        .select();
+    }
 
 }
 
