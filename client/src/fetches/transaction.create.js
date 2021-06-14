@@ -59,7 +59,7 @@ function TransactionCreate() {
                         </div>
                     ))
                 }
-                <button type="submit" onClick={submitHandler}>Buy</button>
+                <button type="submit">Buy</button>
                 <button type="button" onClick={handleRemoveField}>-</button>
                 <button type="button" onClick={handleAddField}>+</button>
             </form>
