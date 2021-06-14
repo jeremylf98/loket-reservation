@@ -43,7 +43,7 @@ class EventTicketGetInfo extends Component {
                         return (
                             <div key={ data.id }>
                                 <h4> Event Ticket Data number {index + 1} </h4>
-                                <div>Id: {data.id}</div>
+                                <div>Id (ticketId): {data.id}</div>
                                 <div>Event Id: {data.event_id}</div>
                                 <div>Type: {data.type}</div>
                                 <div>Price: {data.price}</div>
