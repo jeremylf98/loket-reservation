@@ -18,7 +18,7 @@ class EventCreate extends Component {
     }
 
     submitHandler = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         // console.log(this.state);
         await axios.post('http://localhost:8000/event/create', this.state)
         .then(response => {

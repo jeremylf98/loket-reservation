@@ -15,7 +15,7 @@ class LocationCreate extends Component {
     }
 
     submitHandler = async (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         // console.log(this.state);
         await axios.post('http://localhost:8000/location/create', this.state)
         .then(response => {
